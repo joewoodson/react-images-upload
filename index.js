@@ -222,7 +222,7 @@ class ReactImageUploadComponent extends React.Component {
           </div>
           <button
             type={this.props.buttonType}
-            className={"chooseFileButton " + this.props.buttonClassName}
+            className={this.props.buttonClassName}
             style={this.props.buttonStyles}
             onClick={this.triggerFileUpload}
           >
