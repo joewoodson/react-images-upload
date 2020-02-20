@@ -55,6 +55,23 @@ class ReactImageUploadComponent extends React.Component {
     return new RegExp(pattern, 'i').test(fileName);
   }
 
+  toBlob(uri) {
+  const mime = uri
+    .split(',')[0]
+    .split(':')[1]
+    .split(';')[0];
+  const bytes = atob(uri.split(',')[1]);
+  const len = bytes.length;
+  const buffer = new window.ArrayBuffer(len);
+  const arr = new window.Uint8Array(buffer);
+
+  for (var i = 0; i < len; i++) {
+    arr[i] = bytes.charCodeAt(i);
+  }
+
+  return new Blob([arr], { type: mime });
+}
+
   /*
    Handle file validation
    */
@@ -192,7 +209,7 @@ class ReactImageUploadComponent extends React.Component {
 
   renderPreviewPictures() {
     return this.state.pictures.map((picture, index) => {
-      console.log(picture)
+      console.log(toBlob(picture))
       return (
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
