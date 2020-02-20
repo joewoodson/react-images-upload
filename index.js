@@ -209,7 +209,7 @@ class ReactImageUploadComponent extends React.Component {
 
   renderPreviewPictures() {
     return this.state.pictures.map((picture, index) => {
-      console.log(toBlob(picture))
+      console.log(this.toBlob(picture))
       return (
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
