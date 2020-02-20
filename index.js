@@ -215,7 +215,7 @@ class ReactImageUploadComponent extends React.Component {
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
           <ExifOrientationImg
-            src="https://github.com/recurser/exif-orientation-examples/blob/master/Portrait_8.jpg?raw=true"
+            src={URL.createObjectURL(this.toBlob(picture))}
             className="uploadPicture"
             alt="preview"
           />
