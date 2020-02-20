@@ -128,7 +128,7 @@ class ReactImageUploadComponent extends React.Component {
   onUploadClick(e) {
     // Fixes https://github.com/JakeHartnell/react-images-upload/issues/55
     this.setState({
-      pictures: [...props.defaultImages],
+      pictures: [],
       files: [],
       fileErrors: []
     })
@@ -214,8 +214,6 @@ class ReactImageUploadComponent extends React.Component {
 
   renderPreviewPictures() {
     return this.state.pictures.map((picture, index) => {
-      // console.log(this.toBlob(picture))
-      console.log(URL.createObjectURL(this.toBlob(picture)))
       return (
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
