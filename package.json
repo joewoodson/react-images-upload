@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "react": "^16.2.0",
+    "react-exif-orientation-img": "^0.1.5",
     "react-flip-move": "^3.0.1"
   },
   "scripts": {

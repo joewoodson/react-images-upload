@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 import FlipMove from 'react-flip-move';
+import ExifOrientationImg from 'react-exif-orientation-img';
 import UploadIcon from './UploadIcon.svg';
 
 const styles = {
@@ -190,11 +191,16 @@ class ReactImageUploadComponent extends React.Component {
   }
 
   renderPreviewPictures() {
+    console.log('using exif')
     return this.state.pictures.map((picture, index) => {
       return (
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
-          <img src={picture} className="uploadPicture" alt="preview"/>
+          <ExifOrientationImg
+            src={picture}
+            className="uploadPicture"
+            alt="preview"
+          />
         </div>
       );
     });
