@@ -191,8 +191,8 @@ class ReactImageUploadComponent extends React.Component {
   }
 
   renderPreviewPictures() {
-    console.log('using exif')
     return this.state.pictures.map((picture, index) => {
+      console.log(picture)
       return (
         <div key={index} className="uploadPictureContainer">
           <div className="deleteImage" onClick={() => this.removeImage(picture)}>X</div>
